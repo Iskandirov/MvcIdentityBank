@@ -6,7 +6,7 @@ using System;
 
 namespace MvcIdentityBank
 {
-    internal class CustomUserManager : UserManager<CustomUser>
+    public class CustomUserManager : UserManager<CustomUser>
     {
         public CustomUserManager(IUserStore<CustomUser> store) : base(store)
         {
