@@ -9,18 +9,47 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-dark bg-company-red">
+        <div class="navbar transparent navbar-inverse">
+            <div class="navbar-inner">
+                <img class="navbar-brand" src="Content/Image/f.jpg" id="logo" alt="logo">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link"></a></li>
+                </ul>
+            </div>
+        </div>
 
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+            </li>
+        </ul>
+        <ul class="list-inline">
+            @Html.Partial("_PartialLoginView")
+        </ul>
+    </nav>
+    <nav class="navbar navbar-dark bg-company-red" id="nav">
 
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-        @Html.ActionLink("BankOfNewYork", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar transparent navbar-inverse">
+                <div class="navbar-inner">
+                    <img class="navbar-brand" src="Content/Image/f.jpg" id="logo" alt="logo">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a href="" class="nav-link"></a></li>
+                    </ul>
+                </div>
+            </div>
+            @Html.ActionLink("Friend", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                </li>
                 <li class="nav-item">
                     @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
                 </li>
@@ -33,7 +62,7 @@
             </ul>
         </div>
     </nav>
-    
+
 
     <div class="container body-content">
         @RenderBody()

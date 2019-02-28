@@ -1,4 +1,5 @@
 ﻿body {
+    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -20,16 +21,4 @@ input,
 select,
 textarea {
     max-width: 280px;
-}
-#logo{
-    width: 50px;
-    height: 50px;
-}
-.bg-company-red {
-    background-color: cornflowerblue !important;
-}
-#nav {
-    width: 6%;
-    height: 100%;
-    float: left;
 }
