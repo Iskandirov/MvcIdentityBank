@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using MvcIdentityBank.Models;
 using MvcIdentityBank.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -38,16 +39,25 @@ namespace MvcIdentityBank.Controllers
                 // create user without adding to DB
                 CustomUser customUser = new CustomUser
                 {
-                    UserName = model.Email,
+                    UserName = model.UserName,
                     Email = model.Email,
-                    SkinColor = model.SkinColor
+                    SkinColor = model.SkinColor,
                 };
                 //create UserWithIdentity from simple User
                 var result = await UserManager.CreateAsync(
                     customUser, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    //Adding To DB
+                    using (UserContext db = new UserContext())
+                    {
+                        User user = new User();
+                        user.UserName = model.UserName;
+                        user.Email = model.Email;
+                        user.SkinColor = model.SkinColor;
+                        user.Password = model.Password;
+                    }
+                    return RedirectToAction("Profile", "Home");
                 }
                 else
                 {
@@ -89,7 +99,7 @@ namespace MvcIdentityBank.Controllers
                     }, result);
                     if (String.IsNullOrEmpty(returnUrl))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Profile", "Home");
                     }
                     else
                     {

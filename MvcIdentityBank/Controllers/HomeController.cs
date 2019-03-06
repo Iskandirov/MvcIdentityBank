@@ -13,16 +13,28 @@ namespace MvcIdentityBank.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public new ActionResult Profile()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult MainPage()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Messages()
+        {
+            ViewBag.Message = "application description page.";
+
+            return View();
+        }
+        public ActionResult Friends()
+        {
+            ViewBag.Message = "application description page.";
 
             return View();
         }

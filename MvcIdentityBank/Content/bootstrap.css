@@ -204,10 +204,16 @@ svg {
   overflow: hidden;
   vertical-align: middle;
 }
-
+/*////////////////////////////////////////////////////*/
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
+    background: white;
 }
+
+navbar {
+    height: 50px !important;
+}
+/*////////////////////////////////////////////////////*/
 
 caption {
   padding-top: 0.75rem;
@@ -10034,5 +10040,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+    
 }
 /*# sourceMappingURL=bootstrap.css.map */

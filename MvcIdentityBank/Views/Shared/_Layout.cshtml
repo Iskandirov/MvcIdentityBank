@@ -7,60 +7,23 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body  style="background-color: azure">
 
+   
     <nav class="navbar navbar-dark bg-company-red">
-        <div class="navbar transparent navbar-inverse">
-            <div class="navbar-inner">
-                <img class="navbar-brand" src="Content/Image/f.jpg" id="logo" alt="logo">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item"><a href="#" class="nav-link"></a></li>
-                </ul>
-            </div>
-        </div>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
-            </li>
-        </ul>
-        <ul class="list-inline">
-            @Html.Partial("_PartialLoginView")
-        </ul>
-    </nav>
-    <nav class="navbar navbar-dark bg-company-red" id="nav">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar transparent navbar-inverse">
                 <div class="navbar-inner">
-                    <img class="navbar-brand" src="Content/Image/f.jpg" id="logo" alt="logo">
+                    <img class="navbar-brand" src="~/Content/Image/f.png" id="logo" alt="logo">
                     <ul class="nav navbar-nav">
                         <li class="nav-item"><a href="" class="nav-link"></a></li>
                     </ul>
                 </div>
             </div>
             @Html.ActionLink("Friend", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
-                </li>
-            </ul>
             <ul class="list-inline">
                 @Html.Partial("_PartialLoginView")
             </ul>
-        </div>
     </nav>
 
 
@@ -69,6 +32,7 @@
         <hr />
         <footer>
             <p>&copy; 2015 - @DateTime.Now.Year - My ASP.NET Application</p>
+            @Html.ActionLink("На главную", "MainPage", "Home",new { area ="Controllers/HomeControllers/HomeController/Profile"},new { @class= "navbar-brand" })
         </footer>
     </div>
 
