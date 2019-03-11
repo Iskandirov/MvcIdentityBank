@@ -7,32 +7,34 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body  style="background-color: azure">
+<body style="background-color: azure">
 
-   
+
     <nav class="navbar navbar-dark bg-company-red">
 
-            <div class="navbar transparent navbar-inverse">
-                <div class="navbar-inner">
-                    <img class="navbar-brand" src="~/Content/Image/f.png" id="logo" alt="logo">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item"><a href="" class="nav-link"></a></li>
-                    </ul>
-                </div>
+        <div class="navbar transparent navbar-inverse">
+            <div class="navbar-inner">
+                <img class="navbar-brand" src="~/Content/Image/f.png" id="logo" alt="logo">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a href="" class="nav-link"></a></li>
+                </ul>
             </div>
-            @Html.ActionLink("Friend", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <ul class="list-inline">
-                @Html.Partial("_PartialLoginView")
-            </ul>
+        </div>
+        @Html.ActionLink("Friend", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <ul class="list-inline">
+            @Html.Partial("_PartialLoginView")
+        </ul>
     </nav>
+ 
 
-
-    <div class="container body-content">
         @RenderBody()
+
+    </div>
+    <div class="container body-content">
         <hr />
         <footer>
             <p>&copy; 2015 - @DateTime.Now.Year - My ASP.NET Application</p>
-            @Html.ActionLink("На главную", "MainPage", "Home",new { area ="Controllers/HomeControllers/HomeController/Profile"},new { @class= "navbar-brand" })
+            @Html.ActionLink("На главную", "Profile", "Home", new { area = "Controllers/HomeControllers/HomeController/Profile" }, new { @class = "navbar-brand" })
         </footer>
     </div>
 

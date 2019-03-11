@@ -20,12 +20,6 @@ namespace MvcIdentityBank.Controllers
             return View();
         }
 
-        public ActionResult MainPage()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         public ActionResult Messages()
         {
             ViewBag.Message = "application description page.";

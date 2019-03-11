@@ -1,9 +1,49 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Profile";
 }
-
-<h2>Максим Искандиров</h2>
-<br />
-<img src="~/Content/Image/f.png" style="width: 100px;height:100px;">
+<div class="row">
+        <div style="margin-left:140px">
+            <table>
+                <tr>
+                    @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+                <br />
+                <tr>
+                    @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+                <br />
+                <tr>
+                    @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+            </table>
+        </div>
+        <div style="background-color:white; border-collapse:collapse; border-color:black;">
+            <img src="~/Content/Image/defolt image.png" id="img" style="width: 200px;height:200px;padding:10px">
+            <br />
+            <input type="file" accept="image/*" id="res" style="padding : 10px" />
+            <br />
+            <input type="submit" id="s" value="Отправить" style="margin-left : 10px"/>
+        </div>
+        <div style="background-color:white; margin-left:20px;padding:20px">
+            <table>
+                @*Info about User*@ 
+                <tr>
+                    <h6>Максим Искандиров</h6>
+                    <hr />
+                </tr>
+                <tr>
+                    <p>email: maksimiskandirov2.0@gmail.com</p>
+                </tr>
+                <tr>
+                    <p>Возраст: 18</p>
+                </tr>
+                <tr>
+                    <p>Пол: Мужской</p>
+                </tr>
+                <tr>
+                    <p>Статус: Не женат</p>
+                </tr>
+            </table>
+        </div>
+</div>
 

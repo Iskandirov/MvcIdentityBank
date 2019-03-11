@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace MvcIdentityBank.Controllers
 {
@@ -41,22 +42,21 @@ namespace MvcIdentityBank.Controllers
                 {
                     UserName = model.UserName,
                     Email = model.Email,
-                    SkinColor = model.SkinColor,
                 };
                 //create UserWithIdentity from simple User
                 var result = await UserManager.CreateAsync(
                     customUser, model.Password);
                 if (result.Succeeded)
                 {
-                    //Adding To DB
-                    using (UserContext db = new UserContext())
-                    {
-                        User user = new User();
-                        user.UserName = model.UserName;
-                        user.Email = model.Email;
-                        user.SkinColor = model.SkinColor;
-                        user.Password = model.Password;
-                    }
+                    //Adding To DB 
+                    //using (UserContext db = new UserContext())
+                    //{
+                    //    User user = new User();
+                    //    user.UserName = model.UserName;
+                    //    user.Email = model.Email;
+                    //    user.SkinColor = model.SkinColor;
+                    //    user.Password = model.Password;
+                    //}
                     return RedirectToAction("Profile", "Home");
                 }
                 else
@@ -117,6 +117,16 @@ namespace MvcIdentityBank.Controllers
         {
             AuthManager.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        public ActionResult FileUpload(HttpPostedFileBase uploadFile)
+        {
+            if (uploadFile != null && uploadFile.ContentLength > 0)
+            {
+                string filePath = Path.Combine(Server.MapPath("/Temp"), Path.GetFileName(uploadFile.FileName));
+                uploadFile.SaveAs(filePath);
+            }
+            return View();
         }
     }
 }

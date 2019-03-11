@@ -1,21 +1,31 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-     <p>Some Info about Page</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div>
+    <div class="col-md-3" style="background-color:white; ">
+        <table>
+            <tr>
+                @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </tr>
+            <br />
+            <tr>
+                @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </tr>
+            <br />
+            <tr>
+                @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </tr>
+        </table>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>Some Info about Page</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>Some Info about Page</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div style="float:right">
+        <h2 class="font">Friend - что это ?</h2>
+        <p class="font">
+            Friend - это соц.сеть где ты можешь общятся со своими друзьями и близкими.
+            <br />
+            Здесь ты можешь заводить новых друзей или вторую половинку.
+            <br />
+            Удобный интерфейс позволит тебе с первой же минуты получить удовольствие от сайта.
+            <br />
+        </p>
     </div>
 </div>

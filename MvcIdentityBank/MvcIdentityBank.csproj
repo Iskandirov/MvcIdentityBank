@@ -175,7 +175,9 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\defolt image.png" />
     <Content Include="Content\Image\f.png" />
+    <Content Include="Content\PhotoProfile.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -245,9 +247,9 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_PartialLoginView.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Home\MainPage.cshtml" />
     <Content Include="Views\Home\Messages.cshtml" />
     <Content Include="Views\Home\Friends.cshtml" />
+    <Content Include="Views\Account\FileUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

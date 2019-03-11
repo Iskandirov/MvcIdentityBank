@@ -1,7 +1,26 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Messages";
 }
 
-<h2>Messages</h2>
-
+<div class="row">
+    <div>
+        <div class="col-md-3" style="background-color:white; ">
+            <table>
+                <tr>
+                    @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+                <br />
+                <tr>
+                    @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+                <br />
+                <tr>
+                    @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </tr>
+            </table>
+        </div>
+        <div>
+            @*Message*@
+            <asp:Label> </asp:Label>
+        </div>
+    </div>

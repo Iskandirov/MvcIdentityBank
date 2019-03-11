@@ -23,8 +23,6 @@ namespace MvcIdentityBank.Models.ViewModels
         [Compare("Password",ErrorMessage ="Password are not the same!!!")]
         public string PasswordConfirm { get; set; }
 
-        [Required]
-        public string SkinColor { get; set; }
 
     }
 }
