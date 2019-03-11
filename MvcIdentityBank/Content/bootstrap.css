@@ -63,6 +63,17 @@ body {
     background-color: #fff;
 }
 
+#parent {
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+#block {
+    left: 50%;
+    margin: 0 0 0 425px;
+}
+
 [tabindex="-1"]:focus {
     outline: 0 !important;
 }
@@ -3400,15 +3411,18 @@ input[type="button"].btn-block {
     right: auto;
     bottom: auto;
 }
+
 .dropdown-divider {
     height: 0;
     margin: 0.5rem 0;
     overflow: hidden;
     border-top: 1px solid #e9ecef;
 }
-.font{
-    font-family:Calibri;
+
+.font {
+    font-family: Calibri;
 }
+
 .dropdown-item {
     display: block;
     width: 100%;

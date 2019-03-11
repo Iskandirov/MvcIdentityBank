@@ -1,25 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div>
-    <div class="col-md-3" style="background-color:white; ">
-        <table>
-            <tr>
-                @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </tr>
-            <br />
-            <tr>
-                @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </tr>
-            <br />
-            <tr>
-                @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </tr>
-        </table>
-    </div>
-    <div style="float:right">
+<div class="row" id="parent">
+    <div class="font" id="block">
         <h2 class="font">Friend - что это ?</h2>
-        <p class="font">
+        <p>
             Friend - это соц.сеть где ты можешь общятся со своими друзьями и близкими.
             <br />
             Здесь ты можешь заводить новых друзей или вторую половинку.

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Data.Entity;
 
 namespace MvcIdentityBank.Controllers
 {
@@ -44,19 +45,10 @@ namespace MvcIdentityBank.Controllers
                     Email = model.Email,
                 };
                 //create UserWithIdentity from simple User
-                var result = await UserManager.CreateAsync(
-                    customUser, model.Password);
+                var result = await UserManager.CreateAsync(customUser, model.Password);
                 if (result.Succeeded)
                 {
-                    //Adding To DB 
-                    //using (UserContext db = new UserContext())
-                    //{
-                    //    User user = new User();
-                    //    user.UserName = model.UserName;
-                    //    user.Email = model.Email;
-                    //    user.SkinColor = model.SkinColor;
-                    //    user.Password = model.Password;
-                    //}
+
                     return RedirectToAction("Profile", "Home");
                 }
                 else
@@ -125,8 +117,22 @@ namespace MvcIdentityBank.Controllers
             {
                 string filePath = Path.Combine(Server.MapPath("/Temp"), Path.GetFileName(uploadFile.FileName));
                 uploadFile.SaveAs(filePath);
+                //using (UserContext db = new UserContext())
+                //{
+                //    Update(new object[16], db);
+                //}
             }
+            
             return View();
+            
         }
+    //    public static void Update<TEntity>(TEntity entity, DbContext context)
+    //where TEntity : class
+    //    {
+    //        context.Database.Log = (s => System.Diagnostics.Debug.WriteLine(s));
+
+    //        context.Entry<TEntity>(entity).State = EntityState.Modified;
+    //        context.SaveChanges();
+    //    }
     }
 }

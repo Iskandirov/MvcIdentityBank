@@ -7,8 +7,8 @@ namespace MvcIdentityBank
 {
     public class CustomUser : IdentityUser
     {
-        public string SkinColor { get; set; }
-        public DateTime LastVist { get; set; }
+        public DateTime? LastVist
+        { get; set; }
         public virtual ICollection<Account> Account { get; set; }
     }
 }

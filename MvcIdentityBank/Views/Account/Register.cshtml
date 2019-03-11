@@ -10,27 +10,35 @@
 {
     @Html.AntiForgeryToken()
 
+<div>
+    <h4>Registration Form </h4>
+    <hr />
+    @Html.ValidationSummary()
     <div>
-        <h4>Registration Form </h4>
-        <hr />
-        @Html.ValidationSummary()
-        <div>
-            @Html.DisplayNameFor(m => m.Email)
-            @Html.EditorFor(m => m.Email)
-        </div>
-        <div>
-            @Html.DisplayNameFor(m => m.Password)
-            @Html.EditorFor(m => m.Password)
-        </div>
-        <div>
-            @Html.DisplayNameFor(m => m.PasswordConfirm)
-            @Html.EditorFor(m => m.PasswordConfirm)
-        </div>
-        <div>
-            <input type="submit" value="Reg Me Pls!" />
-        </div>
-        <div>
-            <input type="reset" value="Clear form">
-        </div>
+        @Html.DisplayNameFor(m => m.Email)
+        @Html.EditorFor(m => m.Email)
     </div>
+    <div>
+        @Html.DisplayNameFor(m => m.UserName)
+        @Html.EditorFor(m => m.UserName)
+    </div>
+    <div>
+        @Html.DisplayNameFor(m => m.Sex)
+        @Html.EditorFor(m => m.Sex )
+    </div>
+    <div>
+        @Html.DisplayNameFor(m => m.Password)
+        @Html.EditorFor(m => m.Password)
+    </div>
+    <div>
+        @Html.DisplayNameFor(m => m.PasswordConfirm)
+        @Html.EditorFor(m => m.PasswordConfirm)
+    </div>
+    <div>
+        <input type="submit" value="Reg Me Pls!" />
+    </div>
+    <div>
+        <input type="reset" value="Clear form">
+    </div>
+</div>
 }

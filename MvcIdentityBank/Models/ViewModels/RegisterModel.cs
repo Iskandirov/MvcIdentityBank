@@ -15,6 +15,9 @@ namespace MvcIdentityBank.Models.ViewModels
         public string Email { get; set; }
 
         [Required]
+        public string Sex { get; set; }
+
+        [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
