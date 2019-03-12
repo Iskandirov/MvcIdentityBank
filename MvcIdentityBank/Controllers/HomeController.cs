@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
@@ -28,24 +29,32 @@ namespace MvcIdentityBank.Controllers
 
         public new ActionResult Profile()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            IList<string> roles = new List<string> { "Роль не определена" };
+            CustomUser user = UserManager.FindByName(User.Identity.Name);
+            string a = "Введите Email";
+            if (user != null)
+            {
+                a = user.Email.ToString();
+                return View((object)a);
+            }
+            return View((object)a);
         }
 
         public ActionResult Messages()
         {
             ViewBag.Message = "application description page.";
-
             return View();
         }
         public ActionResult Friends()
         {
-            //List<string> list = new List<string>();
-            //list = UserManager.Users.ToList<string> ;
-
-            ViewBag.Message = "application description page.";
-
+            IList<string> roles = new List<string> { "Роль не определена" };
+            CustomUserManager userManager = UserManager;
+            CustomUser user = userManager.FindByEmail(User.Identity.Name);
+            if (user != null)
+            {
+                roles = userManager.GetRoles(user.UserName);
+            }
+            ViewBag.Role = "test";
             return View();
         }
     }

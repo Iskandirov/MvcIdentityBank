@@ -2,48 +2,61 @@
     ViewBag.Title = "Profile";
 }
 <div class="row">
-        <div class="font" style="margin-left:140px">
-            <table>
-                <tr>
+    <div class="font" style="margin-left:140px">
+        <table>
+            <tr>
+                <td>
                     @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-                <br />
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-                <br />
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-            </table>
-        </div>
-        <div style="background-color:white; border-collapse:collapse; border-color:black;">
-            <img src="~/Content/Image/defolt image.png" id="img" style="width: 200px;height:200px;padding:10px">
-            <br />
-            <input type="file" accept="image/*" id="res" style="padding : 10px" />
-            <br />
-            <input type="submit" id="s" value="Отправить" style="margin-left : 10px"/>
-        </div>
-        <div class="font" style="background-color:white; margin-left:20px;padding:20px">
-            <table>
-                @*Info about User*@ 
-                <tr>
-                    <h6>Максим Искандиров</h6>
-                    <hr />
-                </tr>
-                <tr>
-                    <p>email: maksimiskandirov2.0@gmail.com</p>
-                </tr>
-                <tr>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="background-color:white; border-collapse:collapse; border-color:black;">
+        <img src="~/Content/Image/defolt image.png" id="img" style="width: 200px;height:200px;padding:10px">
+        <br />
+        <input type="file" accept="image/*" id="res" style="padding : 10px" />
+        <br />
+        <input type="submit" id="s" value="Отправить" style="margin-left : 10px" />
+    </div>
+    <div class="font" style="background-color:white; margin-left:20px;padding:20px">
+        <table>
+            @*Info about User*@
+            <tr>
+                <td>
+                    <h6>Макс</h6>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>email: @Model</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <p>Возраст: 18</p>
-                </tr>
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <p>Пол: Мужской</p>
-                </tr>
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <p>Статус: Не женат</p>
-                </tr>
-            </table>
-        </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 

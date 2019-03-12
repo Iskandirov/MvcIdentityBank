@@ -7,7 +7,10 @@ namespace MvcIdentityBank
 {
     public class CustomContext : IdentityDbContext<CustomUser>
     {
-        public CustomContext() : base("CutomConnectionString"){ }
+        public CustomContext() : base("CutomConnectionString")
+        {
+            Database.SetInitializer<CustomContext>(new DropCreateDatabaseAlways<CustomContext>());
+        }
         public static CustomContext Create()
         {
             return new CustomContext();

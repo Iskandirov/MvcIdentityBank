@@ -3,24 +3,30 @@
 }
 
 <div class="row">
-    <div>
-        <div class="col-md-3" style="background-color:white; ">
-            <table>
-                <tr>
+    <div class="font" style="margin-left:140px">
+        <table>
+            <tr>
+                <td>
                     @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-                <br />
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-                <br />
-                <tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </tr>
-            </table>
-        </div>
-        <div>
-            @*Message*@
-            <asp:Label> </asp:Label>
-        </div>
+                </td>
+            </tr>
+        </table>
     </div>
+    <div>
+    </div>
+    <div id="parent">
+        @*Message*@
+        <input id="block" type="search" name="q" placeholder="Написать сообщение">
+        <input type="submit" value="Отправить" />
+    </div>
+</div>

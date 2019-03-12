@@ -2,8 +2,32 @@
 @{
     ViewBag.Title = "Friends";
 }
-<div id="parent">
-    <p id="block">
-        <input type="search" name="q" placeholder="Поиск по сайту">
-        <input type="submit" value="Найти" />
+<div class="row">
+    <div class="font" style="margin-left:140px">
+        <table>
+            <tr>
+                <td>
+                    @Html.ActionLink("Мой профиль", "Profile", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Сообщения", "Message", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Друзья", "Friends", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p id="block">
+            <input type="search" name="q" placeholder="Найти друзей">
+            <input type="submit" value="Найти" />
+    </div>
+    <div>
+
+    </div>
 </div>
