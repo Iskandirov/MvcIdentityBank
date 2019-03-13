@@ -17,6 +17,7 @@ namespace MvcIdentityBank
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
             app.CreatePerOwinContext<CustomContext>(CustomContext.Create);
             app.CreatePerOwinContext<CustomUserManager>(CustomUserManager.Create);
+            app.CreatePerOwinContext<CustomSignInManager>(CustomSignInManager.Create);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,

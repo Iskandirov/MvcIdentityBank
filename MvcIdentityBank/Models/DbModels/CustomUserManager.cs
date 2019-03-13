@@ -21,4 +21,6 @@ namespace MvcIdentityBank
             return manager;
         }
     }
+
+    
 }

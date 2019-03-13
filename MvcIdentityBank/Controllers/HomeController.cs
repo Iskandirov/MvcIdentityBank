@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcIdentityBank.Models.ViewModels;
+
 namespace MvcIdentityBank.Controllers
 {
     public class HomeController : Controller
@@ -14,13 +16,11 @@ namespace MvcIdentityBank.Controllers
         {
             get => HttpContext.GetOwinContext().GetUserManager<CustomUserManager>();
         }
-
         //for register,login,logout ...& other identity operations
         private IAuthenticationManager AuthManager
         {
             get => HttpContext.GetOwinContext().Authentication;
         }
-
 
         public ActionResult Index()
         {
@@ -30,14 +30,12 @@ namespace MvcIdentityBank.Controllers
         public new ActionResult Profile()
         {
             IList<string> roles = new List<string> { "Роль не определена" };
-            CustomUser user = UserManager.FindByName(User.Identity.Name);
-            string a = "Введите Email";
+            CustomUserManager userManager = HttpContext.GetOwinContext()
+                                                    .GetUserManager<CustomUserManager>();
+            CustomUser user = userManager.FindByEmail(User.Identity.Name);
             if (user != null)
-            {
-                a = user.Email.ToString();
-                return View((object)a);
-            }
-            return View((object)a);
+                roles = userManager.GetRoles(user.Id);
+            return View(roles);
         }
 
         public ActionResult Messages()

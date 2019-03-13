@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MvcIdentityBank.Controllers
 {
@@ -21,13 +22,15 @@ namespace MvcIdentityBank.Controllers
         {
             get => HttpContext.GetOwinContext().GetUserManager<CustomUserManager>();
         }
-
         //for register,login,logout ...& other identity operations
         private IAuthenticationManager AuthManager
         {
             get => HttpContext.GetOwinContext().Authentication;
         }
-
+        public CustomSignInManager SignManager
+        {
+            get => HttpContext.GetOwinContext().Get<CustomSignInManager>();
+        }
         [HttpGet]
         public ActionResult Register()
         {
@@ -36,29 +39,21 @@ namespace MvcIdentityBank.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
+            CustomContext cc = new CustomContext();
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(cc));
             if (ModelState.IsValid)
             {
-                // create user without adding to DB
-                CustomUser customUser = new CustomUser
-                {
-                    UserName = model.UserName,
-                    Email = model.Email,
-                };
-                //create UserWithIdentity from simple User
-                var result = await UserManager.CreateAsync(customUser, model.Password);
+                var user = new CustomUser { UserName = model.UserName, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var role = roleManager.Roles.ToList().Single(r => r.Name == "user").Name;
+                    await UserManager.AddToRoleAsync(user.Id, role );
+                    await SignManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     return RedirectToAction("Profile", "Home");
                 }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item);
-                    }
-
-                }
+                //AddErrors(result);
             }
             return View(model);
         }
