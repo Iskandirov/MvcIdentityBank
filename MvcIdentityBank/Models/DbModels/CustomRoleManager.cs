@@ -17,8 +17,7 @@ namespace MvcIdentityBank.Models.DbModels
             public static CustomRoleManager Create(IdentityFactoryOptions<CustomRoleManager> options,
                                                     IOwinContext context)
             {
-                return new CustomRoleManager(new
-                        RoleStore<CustomRole>(context.Get<CustomContext>()));
+                return new CustomRoleManager(new RoleStore<CustomRole>(context.Get<CustomContext>()));
             }
     }
 }
