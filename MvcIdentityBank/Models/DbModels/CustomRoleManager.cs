@@ -9,16 +9,16 @@ using System.Web;
 
 namespace MvcIdentityBank.Models.DbModels
 {
-    public class CustomRoleManager : RoleManager<ApplicationRole>
+    public class CustomRoleManager : RoleManager<CustomRole>
     {
-            public CustomRoleManager(RoleStore<ApplicationRole> store)
+            public CustomRoleManager(RoleStore<CustomRole> store)
                         : base(store)
             { }
             public static CustomRoleManager Create(IdentityFactoryOptions<CustomRoleManager> options,
                                                     IOwinContext context)
             {
                 return new CustomRoleManager(new
-                        RoleStore<ApplicationRole>(context.Get<CustomContext>()));
+                        RoleStore<CustomRole>(context.Get<CustomContext>()));
             }
     }
 }

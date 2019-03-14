@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using MvcIdentityBank.Models.DbModels;
 
 namespace MvcIdentityBank.Models
 {
@@ -12,27 +13,20 @@ namespace MvcIdentityBank.Models
     {
         protected override void Seed(CustomContext context)
         {
-            var userManager = new CustomUserManager(new UserStore<CustomUser>(context));
+            //var RoleManager = HttpContext.GetOwinContext().Get<CustomRoleManager>();
+            //const string roleName = "admin";
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //var Role = RoleManager.FindByName(roleName);
+            //if (Role == null)
+            //{
+            //    Role = new CustomRole();
+            //    Role.Id = "1";
+            //    Role.Name = roleName;
 
-            var role1 = new IdentityRole { Name = "admin" };
-            var role2 = new IdentityRole { Name = "user" };
+            //    var roleresult = RoleManager.Create(Role);
+            //}
 
-            roleManager.Create(role1);
-            roleManager.Create(role2);
-
-            var admin = new CustomUser { Email = "x@x.x", UserName = "Maks" };
-            string password = "123456";
-            var result = userManager.Create(admin, password);
-
-            if (result.Succeeded)
-            {
-                userManager.AddToRole(admin.Id, role1.Name);
-                userManager.AddToRole(admin.Id, role2.Name);
-            }
-
-            base.Seed(context);
+            //base.Seed(context);
         }
     }
 }

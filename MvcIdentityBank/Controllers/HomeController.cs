@@ -29,13 +29,10 @@ namespace MvcIdentityBank.Controllers
 
         public new ActionResult Profile()
         {
-            IList<string> roles = new List<string> { "Роль не определена" };
-            CustomUserManager userManager = HttpContext.GetOwinContext()
-                                                    .GetUserManager<CustomUserManager>();
-            CustomUser user = userManager.FindByEmail(User.Identity.Name);
-            if (user != null)
-                roles = userManager.GetRoles(user.Id);
-            return View(roles);
+            //RegisterModel model = new RegisterModel();
+            //var username = UserManager.Users.ToList().Single(r => r.UserName == "user").UserName;
+            //model.UserName = username;
+            return View(/*model*/);
         }
 
         public ActionResult Messages()

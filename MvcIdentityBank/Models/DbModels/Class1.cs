@@ -6,9 +6,9 @@ using System.Web;
 
 namespace MvcIdentityBank.Models.DbModels
 {
-    public class ApplicationRole : IdentityRole
+    public class CustomRole : IdentityRole
     {
-        public ApplicationRole() { }
+        public CustomRole() { }
 
         public string Description { get; set; }
     }
